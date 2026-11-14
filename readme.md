@@ -1,6 +1,6 @@
 # relay: confidence-gated word matching for dysarthric speech
 
-**track:** health
+**track:** ai + health
 
 **team:** mofe atanda & bharath erusalagandi
 
