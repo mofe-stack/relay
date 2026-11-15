@@ -88,6 +88,8 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 
 *a 3d model of the headset.*
 
+**english speech:** easycall is in italian, so the next step is testing say-so on english speakers with dysarthria. we couldn't do it this weekend because torgo, the open english dataset of dysarthric speech, doesn't have enough repeated recordings of the same words. only 39 words have 4 or more recordings across its 8 speakers with dysarthria.
+
 **other speech models:** try a bigger whisper model (whisper large), hubert from meta and wavlm from microsoft in place of whisper small's listening half in order to see if they turn dysarthric speech into numbers that are easier to compare.
 
 ## sources
@@ -96,6 +98,7 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 - easycall dataset (turrisi et al. 2021, cc by-nc 2.0): [paper](https://arxiv.org/abs/2104.02542) and [hugging face](https://huggingface.co/datasets/changelinglab/easycall-dysarthria)
 - whisper small by openai: [paper](https://arxiv.org/abs/2212.04356) and [hugging face](https://huggingface.co/openai/whisper-small)
 - whisper small for the browser demo: [onnx-community/whisper-small](https://huggingface.co/onnx-community/whisper-small)
+- torgo dataset (english dysarthric speech): [university of toronto](https://www.cs.toronto.edu/~complingweb/data/TORGO/torgo.html)
 - whisper large by openai: [hugging face](https://huggingface.co/openai/whisper-large-v3)
 - hubert from meta: [hugging face](https://huggingface.co/facebook/hubert-large-ll60k)
 - wavlm from microsoft: [hugging face](https://huggingface.co/microsoft/wavlm-large)
