@@ -36,5 +36,5 @@ our own idea (not one of the suggested projects). relay builds on a 2023 apple p
 **the confidence gate:** a logistic regression, which is a small model that gives a chance from 0 to 1 and works well with little data. it uses five clues: how close the best match is, how far behind the next closest word is, whether the three saved recordings agree, how long the recording is and how loud it is. relay speaks only when the chance is high enough that it says a wrong word on about 5% of tries. we trained and set this on some speakers and tested on others, rotating through five groups, so the gate is never tested on someone it learned from.
 
 **baselines:**
-- **whisper small:** the same model relay uses, but with both its listening and writing halves. it chooses from the same 67 phrases as relay by scoring how likely each phrase is and choosing the most likely one. it has never heard the person's voice before, because it's a pretrained model.
+- **whisper small:** the same model relay uses, but with both its listening and writing halves. it chooses from the same 67 phrases as relay by scoring how likely each phrase is and choosing the most likely one. it has never heard the speaker's voice before, because it's a pretrained model.
 - **simplest guess:** always says the most common phrase.
