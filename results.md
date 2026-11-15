@@ -1,4 +1,4 @@
-# sayso: full results
+# say-so: full results
 
 more results for the [readme](readme.md). unless it says otherwise, numbers are on the same 5,149 test recordings from the 27 speakers with dysarthria, with the gate tested on speakers it never learned from.
 
@@ -17,35 +17,35 @@ we also tested the 24 speakers without dysarthria on their 5,196 later recording
 | | spoke | spoke and right | spoke and wrong |
 |---|---|---|---|
 | whisper small | 100% | 83.2% | 16.8% |
-| sayso (no gate) | 100% | 90.2% | 9.8% |
-| sayso with the gate | 93.1% | 88.3% | 4.8% |
+| say-so (no gate) | 100% | 90.2% | 9.8% |
+| say-so with the gate | 93.1% | 88.3% | 4.8% |
 
 ## men vs women (no gate)
 
 | | men | women |
 |---|---|---|
 | whisper small | 55.1% | 46.7% |
-| sayso | 69.9% | 77.5% |
+| say-so | 69.9% | 77.5% |
 
-all 5 severe speakers are men, which pulls the men's numbers down. among mild speakers only, whisper gets 71.7% right for men and 46.2% for women, a gap of 25.5 points. sayso gets 87.9% and 76.6%, a gap of 11.3 points. both do worse on women here, but sayso's gap is less than half of whisper's. easycall doesn't include speakers' ages, so we couldn't check results by age.
+all 5 severe speakers are men, which pulls the men's numbers down. among mild speakers only, whisper gets 71.7% right for men and 46.2% for women, a gap of 25.5 points. say-so gets 87.9% and 76.6%, a gap of 11.3 points. both do worse on women here, but say-so's gap is less than half of whisper's. easycall doesn't include speakers' ages, so we couldn't check results by age.
 
 ## words the user never saved
 
-sometimes a user will say a word they never saved. sayso can't get these right, so the best it can do is not speak and show three words instead. to test this we hid 13 of the 67 phrases for each speaker so they counted as never saved. then we checked how often sayso spoke anyway when someone said one of those hidden phrases. the gate described in the readme speaks on 33.3% of them because it only learned from saved words and never saw this case. when the gate also practices on hidden words during training, that drops to 16.9%.
+sometimes a user will say a word they never saved. say-so can't get these right, so the best it can do is not speak and show three words instead. to test this we hid 13 of the 67 phrases for each speaker so they counted as never saved. then we checked how often say-so spoke anyway when someone said one of those hidden phrases. the gate described in the readme speaks on 33.3% of them because it only learned from saved words and never saw this case. when the gate also practices on hidden words during training, that drops to 16.9%.
 
 ## keep learning
 
-each speaker started with one saved recording of each phrase. sayso then made a prediction on each new recording of those same phrases. after each prediction, the new recording was saved under the right word, as if the user corrected sayso whenever it was wrong. sayso's predictions got more accurate with each recording session:
+each speaker started with one saved recording of each phrase. say-so then made a prediction on each new recording of those same phrases. after each prediction, the new recording was saved under the right word, as if the user corrected say-so whenever it was wrong. say-so's predictions got more accurate with each recording session:
 
 | session 2 | session 3 | session 4 | session 5 | session 6 |
 |---|---|---|---|---|
 | 50.3% | 63.6% | 68.2% | 74.4% | 78.4% |
 
-with no learning it stayed around 54%. if sayso only saved a recording when the right word was already in its top three (spoken or shown for the user to pick), it reached 61.6% by session 6. when the right word wasn't in the top three, nothing was saved, so the words it kept getting wrong never got better.
+with no learning it stayed around 54%. if say-so only saved a recording when the right word was already in its top three (spoken or shown for the user to pick), it reached 61.6% by session 6. when the right word wasn't in the top three, nothing was saved, so the words it kept getting wrong never got better.
 
 ## whisper's gate
 
-for whisper the gate uses whisper's own scores in place of sayso's first two clues (how likely whisper thought its chosen phrase was right and how much more likely it was than the next phrase). whisper has no saved recordings so it has no version of the third clue (whether the three saved recordings agree). it uses the same fourth and fifth clues (how long and how loud the recording is).
+for whisper the gate uses whisper's own scores in place of say-so's first two clues (how likely whisper thought its chosen phrase was right and how much more likely it was than the next phrase). whisper has no saved recordings so it has no version of the third clue (whether the three saved recordings agree). it uses the same fourth and fifth clues (how long and how loud the recording is).
 
 ## other gate models
 
@@ -53,7 +53,7 @@ we also tried boosted trees and a small neural network in place of the logistic 
 
 | gate model | spoke and right | false alarms | auroc |
 |---|---|---|---|
-| logistic regression (sayso) | 61.1% | 5.0% | 0.904 |
+| logistic regression (say-so) | 61.1% | 5.0% | 0.904 |
 | boosted trees | 57.6% | 4.3% | 0.895 |
 | small neural network | 60.9% | 5.6% | 0.896 |
 
