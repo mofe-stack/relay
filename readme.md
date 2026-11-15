@@ -6,7 +6,7 @@
 
 ## the problem
 
-an estimated 97 million people worldwide can't rely on speech alone to be understood, and dysarthria is one cause. we tested whisper, openai's widely used open-source speech-to-text model, on recordings of people with dysarthria and it got the right phrase 52% of the time (21% for severe dysarthria). a model that says the wrong word for someone who can't correct it out loud is worse than one that stays quiet, but speech-to-text models like whisper speak every time.
+an estimated 97 million people worldwide can't rely on speech alone to be understood. one cause is dysarthria, which affects about half of the 15 million people who have a stroke each year and most people with parkinson's disease. people with dysarthria know what they want to say but are hard to understand. when we tested whisper (openai's widely used open-source speech-to-text model) on recordings of people with dysarthria, it got the right phrase 52% of the time and 21% for severe cases. a model that says the wrong word for someone who can't correct it out loud is worse than one that stays quiet, and speech-to-text models like whisper speak every time.
 
 ## what we built
 
@@ -28,7 +28,7 @@ our own idea (not one of the suggested projects). relay builds on a 2023 apple p
 
 **saved and test recordings:** each speaker's first three recordings of each phrase are their saved recordings. relay and the baselines are tested on the same 5,149 later recordings from speakers with dysarthria. relay never saved any of them.
 
-**how relay recognizes words:** relay and the whisper baseline both predict which of the 67 phrases was said. relay uses the listening half of whisper small (openai's speech-to-text model) without retraining it to turn each recording into numbers. it trims the silence, compares the new recording to each saved one from start to finish (dynamic time warping) and chooses the phrase whose saved recordings are closest.
+**how relay recognizes words:** relay and the whisper baseline both predict which of the 67 phrases was said. relay uses the listening half of whisper small without retraining it to turn each recording into numbers. it trims the silence, compares the new recording to each saved one from start to finish (dynamic time warping) and chooses the phrase whose saved recordings are closest.
 
 **the confidence gate:** a small model (a logistic regression) that looks at five clues about each recording:
 
