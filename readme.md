@@ -41,7 +41,7 @@ our own idea (not one of the suggested projects). relay builds on a 2023 apple p
 - how long the recording is
 - how loud the recording is
 
-relay speaks only when that score passes a threshold, set so relay rarely says a wrong word. the gate and the threshold both learn from other speakers' tries. we split the 27 speakers into five groups, trained on four and tested on the fifth, and rotated until every group was tested. this way the gate is never tested on someone it learned from.
+relay speaks only when that score is high enough. the gate learns from other speakers' tries. we split the 27 speakers into five groups, trained on four and tested on the fifth, and rotated until every group was tested. this way the gate is never tested on someone it learned from.
 
 **baselines:**
 - **whisper small:** the same model relay uses, but with both its listening and writing halves. it chooses from the same 67 phrases as relay by scoring how likely each phrase is and choosing the most likely one. it has never heard the speaker's voice before, because it's a pretrained model.
