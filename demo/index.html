@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>relay demo</title>
+  <meta name="description" content="teach relay your own sound for each word, then make the sound. relay says the word clearly, shows the three closest words, or stays quiet.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
+</head>
+<body>
+  <header class="top">
+    <span class="brand">relay</span>
+    <span class="tag">veritas ai hackathon 2026</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>make your sound.<br>relay says the word.</h1>
+      <p class="lede">relay doesn't need words said the standard way. for each word you want, make your own sound for it three times: the word however you can say it, a hum, or any sound you can repeat. then make the sound, and relay says the word clearly, shows the three closest words, or stays quiet when it isn't sure.</p>
+      <p class="caveat">this project is a prototype and is not medical advice. everything runs in this browser and no audio leaves the page. the first load downloads whisper small's listening half (about 92 mb).</p>
+    </section>
+
+    <section class="demo">
+      <div class="mic-col">
+        <div class="mic-card" id="mic-card">
+          <button class="mic" id="mic" disabled aria-label="record">
+            <span class="dot"></span>
+          </button>
+          <p class="mic-label" id="mic-label">loading the model…</p>
+          <div class="load" id="load"><div class="load-fill" id="load-fill"></div></div>
+          <div class="level"><div class="level-fill" id="level"></div></div>
+        </div>
+        <p class="mode" id="mode"></p>
+      </div>
+
+      <div class="panel">
+        <div class="step">
+          <h2>1. teach relay your sounds</h2>
+          <p class="hint">add a word you want relay to say, then press the mic and make your sound for it. do this three times for each word. teach at least two words.</p>
+          <ul class="words" id="words"></ul>
+          <form class="add" id="add">
+            <input id="new-word" maxlength="24" placeholder="a word relay should say, like water" autocomplete="off">
+            <button class="button" type="submit">add</button>
+          </form>
+          <button class="button quiet" id="use">done teaching, start using relay</button>
+        </div>
+
+        <div class="step">
+          <h2>2. make one of your sounds</h2>
+          <div class="result">
+            <p class="result-word idle" id="result-word">waiting</p>
+            <p class="result-note" id="result-note">teach at least two words first.</p>
+          </div>
+          <div class="sure" id="sure" hidden>
+            <div class="sure-track"><div class="sure-fill" id="sure-fill"></div><div class="sure-bar" id="sure-bar"></div></div>
+            <p class="sure-text" id="sure-text"></p>
+          </div>
+          <div class="choices" id="choices" hidden>
+            <p class="choices-q" id="choices-q"></p>
+            <div class="choice-row" id="choice-row"></div>
+          </div>
+          <label class="toggle"><input type="checkbox" id="learn" checked> learn from my answers</label>
+        </div>
+
+        <div class="step">
+          <h2>3. caregiver view</h2>
+          <p class="hint">counts only. relay does not keep a list of what was said.</p>
+          <dl class="counts" id="counts"></dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>relay · mofe atanda &amp; bharath erusalagandi · built on easycall and whisper small</footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
