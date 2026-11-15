@@ -49,7 +49,7 @@ for whisper the gate uses whisper's own scores in place of say-so's first two cl
 
 ## other gate models
 
-we also tried boosted trees and a small neural network in place of the logistic regression on the 27 speakers with dysarthria with the same setup.
+we also tried boosted trees and a small neural network in place of the logistic regression on the 27 speakers with dysarthria with the same setup. boosted trees were too sure of themselves on the practice speakers, so their threshold was set on practice speakers they hadn't learned from.
 
 | gate model | spoke and right | false alarms | auroc |
 |---|---|---|---|

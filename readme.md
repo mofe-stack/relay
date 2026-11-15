@@ -24,7 +24,7 @@ our own idea (not one of the suggested projects). say-so builds on a 2023 apple 
 
 ## how it works
 
-**data:** we used easycall, a public dataset of italian speakers saying 67 short phone commands like "chiama emergenza" (call emergency). it has 27 speakers with dysarthria (16 mild, 6 moderate and 5 severe) and 24 without. we removed 36 of its 21,386 recordings that were too short or too long for whisper.
+**data:** we used easycall, a public dataset of italian speakers saying 67 short phone commands like "chiama emergenza" (call emergency). we tested on the 27 speakers with dysarthria who had at least 4 recording sessions (16 mild, 6 moderate and 5 severe) and 24 speakers without dysarthria. we removed 36 of its 21,386 recordings that were too short or too long for whisper.
 
 **saved and test recordings:** each speaker's first three recordings of each phrase are their saved recordings. say-so and the baselines are tested on the same 5,149 later recordings from speakers with dysarthria. say-so never saved any of them.
 
@@ -65,7 +65,7 @@ all numbers are on the same 5,149 test recordings from the 27 speakers with dysa
 |---|---|---|---|---|---|
 | say-so with the gate | 92.4% | 33.9% | 56.1% | 5.0% | 11.4% |
 
-false alarms (say-so speaks a wrong word) drop from 27.6% without the gate to 5.0% and meet the 5% target even though the threshold was set on other speakers. missed cases are tries where say-so showed three even though its prediction was right. on the tries where say-so shows three, its best guess alone would be right only 33.6% of the time.
+false alarms (say-so speaks a wrong word) drop from 27.6% without the gate to 5.0% and meet the 5% target even though the threshold was set on other speakers. missed cases are tries where say-so showed three even though its prediction was right. on the tries where say-so shows three, its best guess alone would be right only 33.5% of the time.
 
 auroc measures how well the confidence score separates right predictions from wrong ones. if you pick one try where say-so was right and one where it was wrong, it is how often the gate gives the right one the higher score. say-so's gate scores **0.904** (about 9 times out of 10). the same gate on whisper scores 0.877 and apple's rule on say-so's setup scores 0.569.
 
