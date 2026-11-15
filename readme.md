@@ -41,9 +41,9 @@ our own idea (not one of the suggested projects). relay builds on a 2023 apple p
 - how long the recording is
 - how loud the recording is
 
-it gives each clue a weight, adds them up and turns the total into a confidence score from 0 to 1. it learned these weights from practice speakers' tries where the right word was known.
+it combines the five clues into one confidence score from 0 to 1 and gives each clue its own weight. it sets these weights by learning how the clues differed when relay was right and when it was wrong on the practice speakers' recordings.
 
-relay speaks only when that score is above a threshold. the threshold is also set on practice speakers and is chosen so that the wrong words above it are no more than 5% of their tries. when the score is below the threshold, a second small model built the same way estimates whether the right word is among the three closest. if it probably is, relay shows those three. otherwise it stays silent.
+relay speaks only when that score is above a threshold. the threshold is also set on practice speakers and is chosen so that the wrong words above it are no more than 5% of their tries. when the score is below the threshold, a second small model built the same way estimates whether the right word is among the three closest. if the right word is more likely to be in those three than not, relay shows all three of them. otherwise it stays silent.
 
 we split the 27 speakers into five groups, used four as practice and tested on the fifth, and rotated until every group was tested. this way the gate is never tested on someone it learned from.
 
