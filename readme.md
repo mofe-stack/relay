@@ -25,4 +25,4 @@ relay listens to someone with dysarthria and says the word they meant out loud i
 
 ## what we added
 
-our own idea. apple (2023) built a tool that matches someone's speech to their own saved recordings, but it uses one fixed rule to decide when to stay quiet. we added the confidence gate, a small trained model that looks at five clues about each match (e.g. how close the best match is and how loud the recording is).
+our own idea. we built on a 2023 apple paper that matched someone's speech to their own saved recordings and stayed quiet when a new recording wasn't about as close to its match as that phrase's saved recordings were to each other. we added a confidence gate, which is a small trained model that looks at five clues about each match (e.g. how close the best match is and how loud the recording is).
