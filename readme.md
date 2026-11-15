@@ -64,13 +64,13 @@ all numbers are on the same 5,149 test recordings from the 27 speakers with dysa
 
 **with the confidence gate:**
 
-| | right when it spoke | showed three | right word among the three | false alarms | missed cases |
+| | right when spoken | showed three | right in the three | false alarms | missed |
 |---|---|---|---|---|---|
 | relay with the gate | 92.4% | 33.9% | 56.1% | 5.0% | 11.4% |
 
 false alarms (relay speaks a wrong word) drop from 27.6% without the gate and land right at the 5% target even though the threshold was set on other speakers. missed cases are tries where relay showed three even though its prediction was right. on the tries where relay shows three, its best guess alone would be right only 33.6% of the time.
 
-to check how well the confidence score separates right predictions from wrong ones, we used auroc. if you pick one try where relay was right and one where it was wrong, auroc is how often the gate gives the right one the higher score. relay's gate scores **0.904**, so about 9 times out of 10. putting the same gate on whisper scores 0.877. apple's rule on relay's setup scores 0.569.
+to check how well the confidence score separates right predictions from wrong ones, we used auroc. if you pick one try where relay was right and one where it was wrong, auroc is how often the gate gives the right one the higher score. relay's gate scores **0.904**, so about 9 times out of 10. putting the same gate on whisper scores 0.877. for whisper, the gate uses whisper's own scores (how likely its chosen phrase was and how far ahead it was of the next one) in place of relay's distances, plus the same length and loudness. apple's rule on relay's setup scores 0.569.
 
 <img src="roc_curve.png" width="550" alt="roc curve of the confidence gate">
 
