@@ -33,7 +33,7 @@ our own idea (not one of the suggested projects). relay builds on a 2023 apple p
 
 **how relay recognizes words:** for each test recording, relay works out which of the 67 phrases was said, the same choice whisper makes in the baseline. it uses whisper small, openai's speech-to-text model, without retraining it. relay uses its listening half to turn each recording into numbers, trims the silence, then compares the new recording to each saved one from start to finish (dynamic time warping). it chooses the phrase whose saved recordings are closest. this step works like a plug-in tool. it can sit on top of other speech models and requires no extra training.
 
-**the confidence gate:** a logistic regression, which is a small model that gives a confidence score from 0 to 1 and works well with little data. it uses five clues:
+**the confidence gate:** a small model (a logistic regression) that gives a confidence score from 0 to 1. it uses five clues:
 
 - how close the best match is
 - how far behind the next closest word is
