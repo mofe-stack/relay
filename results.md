@@ -29,13 +29,13 @@ all 5 severe speakers are men, which pulls the men's numbers down. among mild sp
 
 **words the user never saved:** sometimes a user will say a word they never saved. relay can't get these right, so the best it can do is not speak and show three words instead. to test this we hid 13 of the 67 phrases for each speaker so they counted as never saved. then we checked how often relay spoke anyway when someone said one of those hidden phrases. the gate described in the readme speaks on 33.3% of them because it only learned from saved words and never saw this case. when the gate also practices on hidden words during training, that drops to 16.9%.
 
-**keep learning:** we started each speaker with one saved recording of each phrase. after each later recording was used, it was saved with its right word, as if the user corrected every miss. relay's top guess was right this often in each recording session:
+**keep learning:** each speaker started with one saved recording of each phrase. relay then made a prediction on each new recording of those same phrases. after each prediction, the new recording was saved under the right word, as if the user corrected relay whenever it was wrong. relay's predictions got more accurate with each recording session:
 
 | session 2 | session 3 | session 4 | session 5 | session 6 |
 |---|---|---|---|---|
 | 50.3% | 63.6% | 68.2% | 74.4% | 78.4% |
 
-with no learning it stayed around 54%. if relay only learned from words the user confirmed, it reached 61.6% by session 6, because the words it kept getting wrong never got new recordings.
+with no learning it stayed around 54%. if relay only saved a recording when the right word was already in its top three (spoken or shown for the user to pick), it reached 61.6% by session 6. when the right word wasn't in the top three, nothing was saved, so the words it kept getting wrong never got better.
 
 **whisper's gate:** for whisper the gate uses whisper's own scores in place of relay's first two clues (how likely whisper thought its chosen phrase was right and how much more likely it was than the next phrase). whisper has no saved recordings so it has no version of the third clue (whether the three saved recordings agree). it uses the same fourth and fifth clues (how long and how loud the recording is).
 
@@ -47,6 +47,6 @@ with no learning it stayed around 54%. if relay only learned from words the user
 | boosted trees | 57.6% | 4.3% | 0.895 |
 | small neural network | 60.9% | 5.6% | 0.896 |
 
-neither model did better, so the limit seems to be the sound itself, not the gate model.
+neither model did better so the limit seems to be the sound itself and not the gate model.
 
 **this project is a prototype and is not medical advice.**
