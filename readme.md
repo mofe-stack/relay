@@ -20,7 +20,7 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 - **set up:** the user says each word or phrase they want three times, including names and personal requests. say-so saves the recordings.
 - **use:** the user says a word or phrase. say-so compares it from start to finish with each recording they saved and picks the closest one.
 - **the confidence gate:** a small trained model then estimates how likely say-so's prediction is to be right. if it is confident, say-so says the word out loud in a clear voice. if it is less sure, it stays silent and shows the three closest saved words for the user to pick from.
-- **learning from feedback:** say-so learns each time the user confirms a word or corrects a wrong guess, so it gets better the more they use it.
+- **learning from feedback:** say-so learns whenever the user corrects a wrong guess or confirms a word, so it gets better the more they use it.
 
 ## what we added
 
