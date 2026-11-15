@@ -46,7 +46,7 @@ it combines the five clues into one confidence score from 0 to 1 and gives each 
 
 say-so speaks only when that score is above a threshold. the threshold is also set on practice speakers and is chosen so that the wrong words above it are no more than 5% of their tries.
 
-we split the 27 speakers into five groups, used four as practice and tested on the fifth, and rotated until every group was tested. this way the gate is never tested on someone it learned from.
+we split the 27 speakers into five groups of 5 or 6 (each with a similar mix of mild, moderate and severe), used four as practice and tested on the fifth, and rotated until every group was tested. this way the gate is never tested on someone it learned from.
 
 **baselines:**
 - **whisper small:** the same model say-so uses, but with both its listening and writing halves. it chooses from the same 67 phrases as say-so by scoring how likely each phrase is and choosing the most likely one. it has never heard the speaker's voice before, because it's a pretrained model.
