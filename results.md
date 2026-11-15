@@ -1,6 +1,6 @@
 # say-so: full results
 
-more results for the [readme](readme.md). unless it says otherwise, numbers are on the same 5,149 test recordings from the 27 speakers with dysarthria, with the gate tested on speakers it never learned from.
+more results for the [readme](readme.md). unless it says otherwise, numbers are on the same 5,149 test recordings from the 27 speakers with dysarthria.
 
 ## by severity
 
