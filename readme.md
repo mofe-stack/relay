@@ -10,9 +10,7 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 
 ## what we built
 
-relay listens to someone with dysarthria and says the word they meant out loud in a clear voice, or stays quiet when it isn't sure.
-
-**who it's for:** we built it for people who have difficulty speaking clearly because of conditions like als, a stroke or cerebral palsy. they can make sound, but the people around them often can't understand what they're saying.
+**who it's for:** we built relay for people who have difficulty speaking clearly because of conditions like als, a stroke or cerebral palsy. they can make sound, but the people around them often can't understand what they're saying.
 
 **when they'd use it:** when they want to ask a caregiver or nurse for something, like water, and can't get the word across.
 
