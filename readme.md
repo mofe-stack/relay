@@ -75,7 +75,7 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 
 **where it fails:**
 - severe speakers get the most wrong spoken words (7.1%), above the 5% target. we think this is because the threshold is set across all practice speakers and most of them are mild (16 of 27) while only 5 are severe.
-- when someone says a word they never saved, relay still speaks 33.3% of the time. the gate only learned from saved words so it never saw this case (see [results.md](results.md#words-the-user-never-saved)).
+- when someone says a word they never saved, relay still speaks 33.3% of the time. the gate only learned from saved words so it never saw this case (see [words the user never saved](results.md#words-the-user-never-saved)).
 - phrases that differ by one sound (like "sali" and "mali") get mixed up because the two recordings sound almost the same.
 
 ## what we'd do next
