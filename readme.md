@@ -23,7 +23,7 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 
 ## what we added
 
-our own idea (not one of the suggested projects). relay builds on a 2023 apple paper that matched speech to a person's own saved recordings and chose between saying a phrase or nothing based only on how close the best match was. relay's confidence gate is a small trained model that looks at five clues to estimate how likely relay's prediction is to be right (e.g. how close the best match is and how loud the recording is).
+our own idea (not one of the suggested projects). relay builds on a 2023 apple paper that matched speech to a person's own saved recordings and chose between saying a phrase or nothing by looking *only* at how close the best match was. relay's confidence gate is a small trained model that looks at five clues to estimate how likely relay's prediction is to be right (e.g. how close the best match is and how loud the recording is).
 
 ## how it works
 
@@ -33,7 +33,7 @@ our own idea (not one of the suggested projects). relay builds on a 2023 apple p
 
 **how relay recognizes words:** for each test recording, relay works out which of the 67 phrases was said, the same choice whisper makes in the baseline. it uses whisper small, openai's speech-to-text model, without retraining it. relay uses its listening half to turn each recording into numbers, trims the silence, then compares the new recording to each saved one from start to finish (dynamic time warping). it chooses the phrase whose saved recordings are closest. this step works like a plug-in tool. it can sit on top of other speech models and requires no extra training.
 
-**the confidence gate:** a small model (a logistic regression) that gives a confidence score from 0 to 1. it uses five clues:
+**the confidence gate:** a small model (a logistic regression) that looks at five clues about each try:
 
 - how close the best match is
 - how far behind the next closest word is
@@ -41,7 +41,11 @@ our own idea (not one of the suggested projects). relay builds on a 2023 apple p
 - how long the recording is
 - how loud the recording is
 
-relay speaks only when that score is above a threshold. the gate and the threshold are both set on practice speakers. the threshold is placed so that among the practice speakers' tries, the wrong words above the threshold are no more than 5% of their tries. we split the 27 speakers into five groups, used four as practice and tested on the fifth, and rotated until every group was tested. this way the gate is never tested on someone it learned from.
+it gives each clue a weight, adds them up and turns the total into a confidence score from 0 to 1. it learned these weights from practice speakers' tries where the right word was known.
+
+relay speaks only when that score is above a threshold. the threshold is also set on practice speakers and is chosen so that the wrong words above it are no more than 5% of their tries. when the score is below the threshold, a second small model built the same way estimates whether the right word is among the three closest. if it probably is, relay shows those three. otherwise it stays silent.
+
+we split the 27 speakers into five groups, used four as practice and tested on the fifth, and rotated until every group was tested. this way the gate is never tested on someone it learned from.
 
 **baselines:**
 - **whisper small:** the same model relay uses, but with both its listening and writing halves. it chooses from the same 67 phrases as relay by scoring how likely each phrase is and choosing the most likely one. it has never heard the speaker's voice before, because it's a pretrained model.
