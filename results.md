@@ -27,7 +27,7 @@ more results for the [readme](readme.md). unless it says otherwise, numbers are 
 
 all 5 severe speakers are men, which pulls the men's numbers down. among mild speakers only, whisper gets 71.7% right for men and 46.2% for women, a gap of 25.5 points. relay gets 87.9% and 76.6%, a gap of 11.3 points. both do worse on women here, but relay's gap is less than half of whisper's. easycall doesn't include speakers' ages, so we couldn't check results by age.
 
-**other gate models:** we also tried boosted trees and a small neural network in place of the logistic regression, with the same five clues, the same speaker groups and the same 5% target.
+**other gate models:** we also tried boosted trees and a small neural network in place of the logistic regression on the 27 speakers with dysarthria, with the same five clues, the same rotation of practice and test speakers and the same 5% target.
 
 | gate model | spoke and right | false alarms | auroc |
 |---|---|---|---|

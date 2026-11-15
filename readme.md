@@ -74,7 +74,7 @@ to check how well the confidence score separates right predictions from wrong on
 
 <img src="roc_curve.png" width="550" alt="roc curve of the confidence gate">
 
-full results, including by severity, speakers without dysarthria and men vs women, are in [results.md](results.md).
+full results are in [results.md](results.md): by severity, speakers without dysarthria and men vs women.
 
 **where it fails:**
 - severe speakers get the most wrong spoken words (7.1%), above the 5% target.
