@@ -23,4 +23,4 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 
 ## what we added
 
-our own idea (not one of the suggested projects). relay builds on a 2023 apple paper that matched someone's speech to their own saved recordings and stayed quiet when the closest match didn't pass a set cut-off. we added a confidence gate, which is a small trained model that looks at five clues to estimate how likely relay's prediction is to be right (e.g. how close the best match is and how loud the recording is).
+our own idea (not one of the suggested projects). relay builds on a 2023 apple paper that matched someone's speech to their own saved recordings and stayed quiet when the new recording didn't sound similar enough to any saved one. we added a confidence gate, which is a small trained model that looks at five clues to estimate how likely relay's prediction is to be right (e.g. how similar the new recording sounds to the closest saved one and how loud it is).
