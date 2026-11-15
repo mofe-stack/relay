@@ -65,7 +65,7 @@ all numbers are on the same 5,149 test recordings from the 27 speakers with dysa
 |---|---|---|---|---|---|
 | relay with the gate | 92.4% | 33.9% | 56.1% | 5.0% | 11.4% |
 
-false alarms (relay speaks a wrong word) drop from 27.6% without the gate and land right at the 5% target even though the threshold was set on other speakers. missed cases are tries where relay showed three even though its prediction was right. on the tries where relay shows three, its best guess alone would be right only 33.6% of the time.
+false alarms (relay speaks a wrong word) drop from 27.6% without the gate to 5.0% and meet the 5% target even though the threshold was set on other speakers. missed cases are tries where relay showed three even though its prediction was right. on the tries where relay shows three, its best guess alone would be right only 33.6% of the time.
 
 auroc measures how well the confidence score separates right predictions from wrong ones. if you pick one try where relay was right and one where it was wrong, it is how often the gate gives the right one the higher score. relay's gate scores **0.904** (about 9 times out of 10). the same gate on whisper scores 0.877 and apple's rule on relay's setup scores 0.569.
 
@@ -75,7 +75,7 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 
 **where it fails:**
 - severe speakers get the most wrong spoken words (7.1%), above the 5% target. we think this is because the threshold is set across all practice speakers and most of them are mild (16 of 27) while only 5 are severe.
-- when someone says a word they never saved, relay still speaks 33.3% of the time. the gate only learned from saved words so it never saw this case.
+- when someone says a word they never saved, relay still speaks 33.3% of the time. the gate only learned from saved words so it never saw this case (see [results.md](results.md#words-the-user-never-saved)).
 - phrases that differ by one sound (like "sali" and "mali") get mixed up because the two recordings sound almost the same.
 
 ## what we'd do next
