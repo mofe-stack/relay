@@ -1,6 +1,6 @@
 // the same steps as the notebook: whisper small's listening half turns a recording into numbers,
 // dynamic time warping compares it to every saved recording, and the confidence gate decides
-// whether to speak, show the three closest saved words, or stay silent
+// whether to speak or show the three closest saved words
 import { AutoProcessor } from "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.5.1";
 
 const MODEL = "onnx-community/whisper-small";
@@ -150,6 +150,6 @@ export async function predict(x, saved) {
 
   const sure = chance(gate.speak, clues);
   let action = "speak";
-  if (sure < gate.speak.cutoff) action = chance(gate.show3, clues) >= gate.show3_bar ? "show3" : "silent";
+  if (sure < gate.speak.cutoff) action = "show3";
   return { action, sure, bar: gate.speak.cutoff, top3: perWord.slice(0, 3), seq, clues };
 }

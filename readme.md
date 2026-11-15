@@ -17,7 +17,7 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 **how they use it:**
 - **set up:** the user adds the words and phrases they want relay to recognize, including names and personal requests, and says each one three times. relay saves the recordings of each word.
 - **use:** the user says a word or phrase. relay compares it from start to finish with each recording they saved and picks the closest one.
-- **the confidence gate:** a small trained model then estimates how likely relay's prediction is to be right. if it is confident, relay says the word out loud in a clear voice. if it is less sure, it shows the three closest saved words for the user to pick from. otherwise it stays silent.
+- **the confidence gate:** a small trained model then estimates how likely relay's prediction is to be right. if it is confident, relay says the word out loud in a clear voice. if it is less sure, it stays silent and shows the three closest saved words for the user to pick from.
 - **learning from feedback:** relay learns each time the user confirms a word or corrects a wrong guess, so it gets better the more they use it.
 - **caregiver view:**
 
@@ -43,7 +43,7 @@ our own idea (not one of the suggested projects). relay builds on a 2023 apple p
 
 it combines the five clues into one confidence score from 0 to 1 and gives each clue its own weight. it sets these weights by learning how the clues differed when relay was right and when it was wrong on the practice speakers' recordings.
 
-relay speaks only when that score is above a threshold. the threshold is also set on practice speakers and is chosen so that the wrong words above it are no more than 5% of their tries. when the score is below the threshold, a second small model built the same way estimates whether the right word is among the three closest saved words. if the right word is more likely to be in those three than not, relay shows all three of them. otherwise it stays silent.
+relay speaks only when that score is above a threshold. the threshold is also set on practice speakers and is chosen so that the wrong words above it are no more than 5% of their tries. when the score is below the threshold, relay stays silent and shows the three closest saved words for the user to pick from.
 
 we split the 27 speakers into five groups, used four as practice and tested on the fifth, and rotated until every group was tested. this way the gate is never tested on someone it learned from.
 
@@ -61,15 +61,13 @@ all numbers are on the same 5,149 test recordings from the 27 speakers with dysa
 | whisper small | 52.4% | 47.6% |
 | relay (no gate) | 72.4% (+20.0 vs whisper) | 27.6% (-20.0 vs whisper) |
 
-whisper speaks every time, so it says a wrong word on almost half of tries. relay's recognition alone gets 20 more points right.
-
 **with the confidence gate:**
 
-| | spoke | right when it spoke | wrong when it spoke | didn't speak |
+| | spoke | right when it spoke | wrong when it spoke | showed three |
 |---|---|---|---|---|
 | relay with the gate | 66.1% of tries | 92.4% | 7.6% | 33.9% of tries |
 
-out of the times relay speaks, 92.4% of the words are right. false alarms (relay speaks a wrong word) drop from 27.6% of all tries without the gate to 5.0% with it. missed cases (relay stays quiet even though its prediction was right) are 11.4% of all tries. when it doesn't speak, the right word is often still in the three closest saved words (the right word is in the top three on 82.9% of all tries).
+out of the times relay speaks, 92.4% of the words are right. false alarms (relay speaks a wrong word) drop from 27.6% of all tries without the gate to 5.0% with it and land right at the 5% target even though the threshold was set on other speakers. missed cases (relay shows three instead of speaking even though its prediction was right) are 11.4% of all tries.
 
 to check how well the confidence score separates right predictions from wrong ones, we used auroc. if you pick one try where relay was right and one where it was wrong, auroc is how often the gate gives the right one the higher score. relay's gate scores **0.904**, so about 9 times out of 10.
 
@@ -89,7 +87,7 @@ to check how well the confidence score separates right predictions from wrong on
 | relay (no gate) | 90.2% | 9.8% |
 | relay with the gate | 88.3% | 4.8% |
 
-with the gate, relay didn't speak on the other 6.9%. relay still beats whisper on clear speech, and the gate keeps wrong spoken words under 5% even on these new speakers.
+with the gate, relay showed three on the other 6.9%. relay still beats whisper on clear speech, and the gate keeps wrong spoken words under 5% even on these new speakers.
 
 **men vs women (no gate):**
 

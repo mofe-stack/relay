@@ -5,7 +5,7 @@ const RATE = 16000;
 const MAX_SECONDS = 6;
 
 // saved holds every saved recording as { word, seq }. words keeps the order they were added in
-const state = { saved: [], words: [], active: null, using: false, last: null, counts: { spoke: 0, show3: 0, silent: 0, learned: 0 } };
+const state = { saved: [], words: [], active: null, using: false, last: null, counts: { spoke: 0, show3: 0, learned: 0 } };
 
 // ---------- recording ----------
 
@@ -158,14 +158,10 @@ async function useRecording(x) {
     showResult(r.top3[0].word, "speak", "relay was sure enough, so it said it out loud.");
     speak(r.top3[0].word);
     askChoices(`did you mean "${r.top3[0].word}"?`, [r.top3[0].word], true);
-  } else if (r.action === "show3") {
+  } else {
     state.counts.show3++;
     showResult(r.top3.map((p) => p.word).join(" · "), "show3", "relay wasn't sure, so it shows the three closest saved words.");
     askChoices("which one did you mean?", r.top3.map((p) => p.word), false);
-  } else {
-    state.counts.silent++;
-    showResult("…", "silent", "relay wasn't sure, so it stayed quiet. try again.");
-    askChoices("pick the word you meant, so relay can learn it:", state.words.filter((w) => ready.has(w)), false);
   }
   setLabel("press the mic and make another sound.");
   render();
@@ -221,13 +217,12 @@ function learn(word) {
 
 function renderCounts() {
   const c = state.counts;
-  const total = c.spoke + c.show3 + c.silent;
+  const total = c.spoke + c.show3;
   const pct = (n) => (total ? ` (${Math.round((n / total) * 100)}%)` : "");
   $("counts").innerHTML = `
     <dt>tries</dt><dd>${total}</dd>
     <dt>spoke out loud</dt><dd>${c.spoke}${pct(c.spoke)}</dd>
     <dt>showed three words</dt><dd>${c.show3}${pct(c.show3)}</dd>
-    <dt>stayed quiet</dt><dd>${c.silent}${pct(c.silent)}</dd>
     <dt>recordings learned from answers</dt><dd>${c.learned}</dd>`;
 }
 
