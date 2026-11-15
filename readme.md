@@ -86,7 +86,7 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 
 *a 3d model of the headset.*
 
-**other speech models:** try hubert from meta and wavlm from microsoft in place of whisper small's listening half in order to see if they turn dysarthric speech into numbers that are easier to compare.
+**other speech models:** try a bigger whisper model (whisper large), hubert from meta and wavlm from microsoft in place of whisper small's listening half in order to see if they turn dysarthric speech into numbers that are easier to compare.
 
 ## sources
 
@@ -94,6 +94,7 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 - easycall dataset (turrisi et al. 2021, cc by-nc 2.0): [paper](https://arxiv.org/abs/2104.02542) and [hugging face](https://huggingface.co/datasets/changelinglab/easycall-dysarthria)
 - whisper small by openai: [paper](https://arxiv.org/abs/2212.04356) and [hugging face](https://huggingface.co/openai/whisper-small)
 - whisper small for the browser demo: [onnx-community/whisper-small](https://huggingface.co/onnx-community/whisper-small)
+- whisper large by openai: [hugging face](https://huggingface.co/openai/whisper-large-v3)
 - hubert from meta: [hugging face](https://huggingface.co/facebook/hubert-large-ll60k)
 - wavlm from microsoft: [hugging face](https://huggingface.co/microsoft/wavlm-large)
 
