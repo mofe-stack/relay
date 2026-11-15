@@ -39,7 +39,7 @@ with no learning it stayed around 54%. if relay only learned from words the user
 
 **whisper's gate:** for whisper the gate uses whisper's own scores in place of relay's first two clues (how likely whisper thought its chosen phrase was right and how much more likely it was than the next phrase). whisper has no saved recordings so it has no version of the third clue (whether the three saved recordings agree). it uses the same fourth and fifth clues (how long and how loud the recording is).
 
-**other gate models:** we also tried boosted trees and a small neural network in place of the logistic regression on the 27 speakers with dysarthria, with the same five clues, the same rotation of practice and test speakers and the same 5% target.
+**other gate models:** we also tried boosted trees and a small neural network in place of the logistic regression on the 27 speakers with dysarthria with the same setup.
 
 | gate model | spoke and right | false alarms | auroc |
 |---|---|---|---|
@@ -47,6 +47,6 @@ with no learning it stayed around 54%. if relay only learned from words the user
 | boosted trees | 57.6% | 4.3% | 0.895 |
 | small neural network | 60.9% | 5.6% | 0.896 |
 
-boosted trees were too sure of themselves on the practice speakers, so their threshold had to be set with an extra rotation inside the practice speakers. neither model did better, so the limit seems to be the clues themselves, not the gate model.
+neither model did better, so the limit seems to be the sound itself, not the gate model.
 
-this project is a prototype and is not medical advice.
+**this project is a prototype and is not medical advice.**
