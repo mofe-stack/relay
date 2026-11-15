@@ -80,9 +80,9 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 
 ## what we'd do next
 
-**a headset for extra clues:** every gate model we tried landed around 0.90 auroc, so the limit seems to be the quality of the clues, not the gate. a headset that picks up small muscle signals from the face and throat (emg) while the user speaks would give the gate clues that don't depend on how clear the speech sounds.
+**a headset for muscle signals:** we also tried boosted trees and a small neural network as the gate and they all landed around 0.90 auroc, so the limit seems to be the sound itself. a headset that picks up small muscle signals from the face and throat (emg) while the user speaks would add a second signal that comes from the muscles instead of the sound. relay could compare these signals to the user's saved ones the same way it compares sound, and the gate could use them as extra clues.
 
-<img src="headset_model.gif" width="550" alt="3d model of a headset with emg sensors">
+<img src="headset_3d.gif" width="550" alt="3d model of a headset with emg sensors">
 
 *a 3d model of the headset.*
 
