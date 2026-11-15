@@ -33,7 +33,15 @@ our own idea (not one of the suggested projects). relay builds on a 2023 apple p
 
 **how relay recognizes words:** for each test recording, relay works out which of the 67 phrases was said, the same choice whisper makes in the baseline. it uses whisper small, openai's speech-to-text model, without retraining it. relay uses its listening half to turn each recording into numbers, trims the silence, then compares the new recording to each saved one from start to finish (dynamic time warping). it chooses the phrase whose saved recordings are closest. this step works like a plug-in tool. it can sit on top of other speech models and requires no extra training.
 
-**the confidence gate:** a logistic regression, which is a small model that gives a chance from 0 to 1 and works well with little data. it uses five clues: how close the best match is, how far behind the next closest word is, whether the three saved recordings agree, how long the recording is and how loud it is. relay speaks only when that chance passes a bar, set so relay rarely says a wrong word. the gate and the bar both learn from other speakers' tries. we split the 27 speakers into five groups, trained on four and tested on the fifth, and rotated until every group was tested. this way the gate is never tested on someone it learned from.
+**the confidence gate:** a logistic regression, which is a small model that gives a chance from 0 to 1 and works well with little data. it uses five clues:
+
+- how close the best match is
+- how far behind the next closest word is
+- whether the three saved recordings agree
+- how long the recording is
+- how loud the recording is
+
+relay speaks only when that chance passes a bar, set so relay rarely says a wrong word. the gate and the bar both learn from other speakers' tries. we split the 27 speakers into five groups, trained on four and tested on the fifth, and rotated until every group was tested. this way the gate is never tested on someone it learned from.
 
 **baselines:**
 - **whisper small:** the same model relay uses, but with both its listening and writing halves. it chooses from the same 67 phrases as relay by scoring how likely each phrase is and choosing the most likely one. it has never heard the speaker's voice before, because it's a pretrained model.
