@@ -84,8 +84,6 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 
 <img src="headset.gif" width="550" alt="3d model of a headset with emg sensors">
 
-*a 3d model of the kind of headset we mean. it was designed before this hackathon and is not part of this project.*
-
-**other speech models:** try hubert from meta and wavlm from microsoft in place of whisper small's listening half, to see if they turn dysarthric speech into numbers that are easier to compare.
+**other speech models:** try hubert from meta and wavlm from microsoft in place of whisper small's listening half, to see if their numbers for dysarthric speech improve relay's predictions.
 
 this project is a prototype and is not medical advice.
