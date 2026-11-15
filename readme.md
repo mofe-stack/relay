@@ -82,10 +82,10 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 
 **a headset for extra clues:** every gate model we tried landed around 0.90 auroc, so the limit seems to be the quality of the clues, not the gate. a headset that picks up small muscle signals from the face and throat (emg) while the user speaks would give the gate clues that don't depend on how clear the speech sounds.
 
-<img src="headset.gif" width="550" alt="3d model of a headset with emg sensors">
+<img src="headset_model.gif" width="550" alt="3d model of a headset with emg sensors">
 
 *a 3d model of the headset.*
 
-**other speech models:** try hubert from meta and wavlm from microsoft in place of whisper small's listening half, to see if their numbers for dysarthric speech improve relay's predictions.
+**other speech models:** try hubert from meta and wavlm from microsoft in place of whisper small's listening half in order to see if they turn dysarthric speech into numbers that are easier to compare.
 
 this project is a prototype and is not medical advice.
