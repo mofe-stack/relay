@@ -10,7 +10,9 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 
 ## what we built
 
-**who it's for:** we built it for people who have difficulty speaking clearly because of conditions like als, a stroke or cerebral palsy. they can make sound, but the people around them often can't understand what they saying. 
+relay listens to someone with unclear speech and says the word they meant out loud in a clear voice. if it isn't sure, it shows its top three guesses to pick from, or stays quiet.
+
+**who it's for:** we built it for people who have difficulty speaking clearly because of conditions like als, a stroke or cerebral palsy. they can make sound, but the people around them often can't understand what they're saying.
 
 **when they'd use it:** when they want to ask a caregiver or nurse for something, like water, and can't get the word across.
 
@@ -20,3 +22,7 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 - **the confidence gate:** a small trained model then predicts how likely relay's match is to be right. if it is confident, relay says the word out loud in a clear voice. if it is less sure, it shows its top three guesses for the user to pick from. otherwise it stays silent.
 - **learning from feedback:** relay learns each time the user confirms a word or corrects a wrong guess, so it gets better the more they use it.
 - **caregiver view:**
+
+## what we added
+
+our own idea. apple (2023) built a tool that matches someone's speech to their own saved recordings, but it uses one fixed rule to decide when to stay quiet. we added the confidence gate, a small trained model that looks at five clues about each match (e.g. how close the best match is and how loud the recording is).
