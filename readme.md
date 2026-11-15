@@ -24,3 +24,15 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 ## what we added
 
 our own idea (not one of the suggested projects). relay builds on a 2023 apple paper that matched speech to a person's own saved recordings and chose between saying a phrase or nothing based only on how close the best match was. relay's confidence gate is a small trained model that looks at five clues to estimate how likely relay's prediction is to be right (e.g. how close the best match is and how loud the recording is).
+
+## how it works
+
+**data:** we used easycall, a public dataset of italian speakers saying 67 short commands for using a phone like "chiama emergenza" (call emergency). we removed 36 of its 21,386 recordings because they were too short to contain a full word (under 0.2 seconds) or longer than whisper can take in at once (over 30 seconds). we also fixed phrases that were spelled two different ways, so the same phrase wasn't counted as two. we tested on 27 speakers with dysarthria (16 mild, 6 moderate and 5 severe) and 24 speakers without it.
+
+**saved and test recordings:** each speaker's first three recordings of each phrase are their saved recordings. relay is tested on the 5,149 later recordings from speakers with dysarthria and never on a recording it saved.
+
+**matching:** we used whisper small, openai's speech-to-text model, without retraining it. relay uses its listening half to turn each recording into numbers, trims the silence, then compares the new recording to each saved one from start to finish (dynamic time warping). this makes relay work like a plug-in. a new user doesn't train anything. they just save their recordings, and adding a new word only takes three more.
+
+**the confidence gate:** a logistic regression, which is a small model that gives a chance from 0 to 1 and works well with little data. it uses five clues: how close the best match is, how far behind the next closest word is, whether the three saved recordings agree, how long the recording is and how loud it is. relay speaks only when the chance is high enough that about 5% of spoken words are wrong. we trained and set this on some speakers and tested on others, rotating through five groups, so the gate is never tested on someone it learned from.
+
+**baselines:** whisper small picking from the same 67 phrases with no saved recordings, and the simplest guess, which always says the most common phrase.
