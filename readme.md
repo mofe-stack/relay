@@ -4,6 +4,8 @@
 
 **team:** mofe atanda & bharath erusalagandi
 
+**code:** [say-so.ipynb](say-so.ipynb) ([open in colab](https://colab.research.google.com/github/mofe-stack/say-so/blob/main/say-so.ipynb))
+
 ## the problem
 
 an estimated 97 million people worldwide can't rely on speech alone to be understood. one cause is dysarthria, which affects about half of the 15 million people who have a stroke each year and most people with parkinson's disease. people with dysarthria know what they want to say but are hard to understand. when we tested whisper (openai's widely used open-source speech-to-text model) on recordings of people with dysarthria, it got the right phrase 52% of the time and 21% for severe cases. a model that says the wrong word for someone who can't correct it out loud is worse than one that stays quiet, and speech-to-text models like whisper speak every time.
