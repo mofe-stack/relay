@@ -69,9 +69,9 @@ all numbers are on the same 5,149 test recordings from the 27 speakers with dysa
 
 false alarms (relay speaks a wrong word) drop from 27.6% of all tries without the gate to 5.0% and land right at the 5% target even though the threshold was set on other speakers. missed cases (relay shows three even though its prediction was right) are 11.4% of tries. when relay shows three, the right word is among them 56.1% of the time, and if relay had spoken its best guess instead it would be right only 33.6% of the time. in total, the right word is spoken or shown on 80.1% of all tries.
 
-to check how well the confidence score separates right predictions from wrong ones, we used auroc. if you pick one try where relay was right and one where it was wrong, auroc is how often the gate gives the right one the higher score. relay's gate scores **0.904**, so about 9 times out of 10. using closeness alone scores 0.821, so the other four clues add a lot.
+to check how well the confidence score separates right predictions from wrong ones, we used auroc. if you pick one try where relay was right and one where it was wrong, auroc is how often the gate gives the right one the higher score. relay's gate scores **0.904**, so about 9 times out of 10. using closeness alone scores 0.821, so the other four clues add a lot. putting the same kind of gate on whisper scores 0.879.
 
-![roc curve of the confidence gate](roc.png)
+<img src="roc.png" width="450" alt="roc curve of the confidence gate">
 
 **by severity:**
 
