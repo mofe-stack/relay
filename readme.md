@@ -16,7 +16,7 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 
 **how they use it:**
 - **set up:** the user adds the words and phrases they want relay to recognize, including names and personal requests, and says each one three times. relay saves the recordings of each word.
-- **use:** the user says a word. relay puts it next to each recording they saved, compares them from start to finish, and picks the closest match.
+- **use:** the user says a word. relay compares it from start to finish with each recording they saved and picks the closest one.
 - **the confidence gate:** a small trained model then estimates how likely relay's prediction is to be right. if it is confident, relay says the word out loud in a clear voice. if it is less sure, it shows the top three closest saved words for the user to pick from. otherwise it stays silent.
 - **learning from feedback:** relay learns each time the user confirms a word or corrects a wrong guess, so it gets better the more they use it.
 - **caregiver view:**
