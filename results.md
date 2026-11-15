@@ -27,6 +27,18 @@ more results for the [readme](readme.md). unless it says otherwise, numbers are 
 
 all 5 severe speakers are men, which pulls the men's numbers down. among mild speakers only, whisper gets 71.7% right for men and 46.2% for women, a gap of 25.5 points. relay gets 87.9% and 76.6%, a gap of 11.3 points. both do worse on women here, but relay's gap is less than half of whisper's. easycall doesn't include speakers' ages, so we couldn't check results by age.
 
+**words the user never saved:** for each speaker we hid 13 of the 67 phrases and checked how often relay spoke anyway. relay can't get these right because the word was never saved. the gate described in the readme speaks on 33.3% of them, because it only learned from saved words and never saw this case. when the gate also practices on hidden words during training, that drops to 16.9%. the demo uses this second version.
+
+**keep learning:** we started each speaker with one saved recording of each phrase. after each later recording was used, it was saved with its right word, as if the user corrected every miss. relay's top guess was right this often on each day:
+
+| day 2 | day 3 | day 4 | day 5 | day 6 |
+|---|---|---|---|---|
+| 50.3% | 63.6% | 68.2% | 74.4% | 78.4% |
+
+with no learning it stayed around 54%. if relay only learned from words the user confirmed, it reached 61.6% on day 6, because the words it kept getting wrong never got new recordings.
+
+**whisper's gate:** for whisper the gate uses whisper's own scores in place of relay's first two clues (how likely whisper thought its chosen phrase was right and how much more likely it was than the next phrase). whisper has no saved recordings so it has no version of the third clue (whether the three saved recordings agree). it uses the same fourth and fifth clues (how long and how loud the recording is).
+
 **other gate models:** we also tried boosted trees and a small neural network in place of the logistic regression on the 27 speakers with dysarthria, with the same five clues, the same rotation of practice and test speakers and the same 5% target.
 
 | gate model | spoke and right | false alarms | auroc |
