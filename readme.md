@@ -33,7 +33,7 @@ our own idea (not one of the suggested projects). relay builds on a 2023 apple p
 
 **how relay recognizes words:** for each test recording, relay and the whisper baseline both predict which of the 67 phrases was said. relay is built on whisper small, openai's speech-to-text model, without retraining it. relay uses its listening half to turn each recording into numbers, trims the silence, then compares the new recording to each saved one from start to finish (dynamic time warping). it chooses the phrase whose saved recordings are closest. this step works like a plug-in tool. it can sit on top of other speech models and requires no extra training.
 
-**the confidence gate:** a small model (a logistic regression) that looks at five clues about each try:
+**the confidence gate:** a small model (a logistic regression) that looks at five clues about each recording:
 
 - how close the best match is
 - how far behind the next closest saved word is
@@ -63,11 +63,11 @@ all numbers are on the same 5,149 test recordings from the 27 speakers with dysa
 
 **with the confidence gate:**
 
-| | spoke | right when it spoke | wrong when it spoke | showed three |
-|---|---|---|---|---|
-| relay with the gate | 66.1% of tries | 92.4% | 7.6% | 33.9% of tries |
+| | spoke | right when it spoke | showed three |
+|---|---|---|---|
+| relay with the gate | 66.1% | 92.4% | 33.9% |
 
-out of the times relay speaks, 92.4% of the words are right. false alarms (relay speaks a wrong word) drop from 27.6% of all tries without the gate to 5.0% with it and land right at the 5% target even though the threshold was set on other speakers. missed cases (relay shows three instead of speaking even though its prediction was right) are 11.4% of all tries. when relay shows the three closest saved words, the right word is among them 56.1% of the time. counting both the words it speaks and the three it shows, the right word is spoken or shown on 80.1% of all tries.
+false alarms (relay speaks a wrong word) drop from 27.6% of all tries without the gate to 5.0% and land right at the 5% target even though the threshold was set on other speakers. missed cases (relay shows three even though its prediction was right) are 11.4% of tries. when relay shows three, the right word is among them 56.1% of the time. in total, the right word is spoken or shown on 80.1% of all tries.
 
 to check how well the confidence score separates right predictions from wrong ones, we used auroc. if you pick one try where relay was right and one where it was wrong, auroc is how often the gate gives the right one the higher score. relay's gate scores **0.904**, so about 9 times out of 10.
 
