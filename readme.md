@@ -29,7 +29,7 @@ our own idea (not one of the suggested projects). relay builds on a 2023 apple p
 
 **data:** we used easycall, a public dataset of italian speakers saying 67 short commands for using a phone like "chiama emergenza" (call emergency). we removed 36 of its 21,386 recordings because they were too short to contain a full word (under 0.2 seconds) or longer than whisper can take in at once (over 30 seconds). we also fixed phrases that were spelled two different ways, so the same phrase wasn't counted as two. we tested on 27 speakers with dysarthria (16 mild, 6 moderate and 5 severe) and 24 speakers without it.
 
-**saved and test recordings:** each speaker's first three recordings of each phrase are their saved recordings. relay and the baselines are tested on the same 5,149 later recordings from speakers with dysarthria that relay never saved.
+**saved and test recordings:** each speaker's first three recordings of each phrase are their saved recordings. relay and the baselines are tested on the same 5,149 later recordings from speakers with dysarthria. relay never saved any of them.
 
 **how relay recognizes words:** for each test recording, relay works out which of the 67 phrases was said, the same choice whisper makes in the baseline. it uses whisper small, openai's speech-to-text model, without retraining it. relay uses its listening half to turn each recording into numbers, trims the silence, then compares the new recording to each saved one from start to finish (dynamic time warping). it chooses the phrase whose saved recordings are closest. this step works like a plug-in tool. it can sit on top of other speech models and requires no extra training.
 
