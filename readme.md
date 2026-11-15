@@ -97,7 +97,7 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 - hubert from meta: [hugging face](https://huggingface.co/facebook/hubert-large-ll60k)
 - wavlm from microsoft: [hugging face](https://huggingface.co/microsoft/wavlm-large)
 
-**papers and facts**
+**other papers and facts**
 - apple's latent phrase matching paper (2023): [arxiv](https://arxiv.org/abs/2306.05446)
 - 97 million people who may benefit from other ways to communicate: [asha](https://www.asha.org/practice-portal/professional-issues/augmentative-and-alternative-communication/)
 - dysarthria after a stroke and with parkinson's disease: [asha](https://www.asha.org/practice-portal/clinical-topics/dysarthria-in-adults/)
