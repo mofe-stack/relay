@@ -16,8 +16,8 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 
 **how they use it:**
 - **set up:** the user adds the words and phrases they want relay to recognize, including names and personal requests, and says each one three times. relay saves the recordings of each word.
-- **use:** the user says a word. relay compares it from start to finish with each recording they saved and picks the closest one.
-- **the confidence gate:** a small trained model then estimates how likely relay's prediction is to be right. if it is confident, relay says the word out loud in a clear voice. if it is less sure, it shows the top three closest saved words for the user to pick from. otherwise it stays silent.
+- **use:** the user says a word or phrase. relay compares it from start to finish with each recording they saved and picks the closest one.
+- **the confidence gate:** a small trained model then estimates how likely relay's prediction is to be right. if it is confident, relay says the word out loud in a clear voice. if it is less sure, it shows the three closest saved words for the user to pick from. otherwise it stays silent.
 - **learning from feedback:** relay learns each time the user confirms a word or corrects a wrong guess, so it gets better the more they use it.
 - **caregiver view:**
 
@@ -36,14 +36,14 @@ our own idea (not one of the suggested projects). relay builds on a 2023 apple p
 **the confidence gate:** a small model (a logistic regression) that looks at five clues about each try:
 
 - how close the best match is
-- how far behind the next closest word is
+- how far behind the next closest saved word is
 - whether the three saved recordings agree
 - how long the recording is
 - how loud the recording is
 
 it combines the five clues into one confidence score from 0 to 1 and gives each clue its own weight. it sets these weights by learning how the clues differed when relay was right and when it was wrong on the practice speakers' recordings.
 
-relay speaks only when that score is above a threshold. the threshold is also set on practice speakers and is chosen so that the wrong words above it are no more than 5% of their tries. when the score is below the threshold, a second small model built the same way estimates whether the right word is among the three closest. if the right word is more likely to be in those three than not, relay shows all three of them. otherwise it stays silent.
+relay speaks only when that score is above a threshold. the threshold is also set on practice speakers and is chosen so that the wrong words above it are no more than 5% of their tries. when the score is below the threshold, a second small model built the same way estimates whether the right word is among the three closest saved words. if the right word is more likely to be in those three than not, relay shows all three of them. otherwise it stays silent.
 
 we split the 27 speakers into five groups, used four as practice and tested on the fifth, and rotated until every group was tested. this way the gate is never tested on someone it learned from.
 
