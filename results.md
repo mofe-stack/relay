@@ -33,7 +33,7 @@ all 5 severe speakers are men, which pulls the men's numbers down. among mild sp
 
 sometimes a user will say a word they never saved. say-so can't get these right, so the best it can do is not speak and show three words instead. to test this we hid 13 of the 67 phrases for each speaker so they counted as never saved. then we checked how often say-so spoke anyway when someone said one of those hidden phrases. the gate described in the readme speaks on 33.3% of them because it only learned from saved words and never saw this case. when the gate also practices on hidden words during training, that drops to 16.9%.
 
-## keep learning
+## keep learning feature
 
 each speaker started with one saved recording of each phrase. say-so then made a prediction on each new recording of those same phrases. after each prediction, the new recording was saved under the right word, as if the user corrected say-so whenever it was wrong. say-so's predictions got more accurate with each recording session:
 
