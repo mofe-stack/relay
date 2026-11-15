@@ -12,6 +12,8 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 
 ## what we built
 
+say-so is a voice for people with dysarthria that learns their words from three recordings each and only speaks for them when it is sure.
+
 **who it's for:** people who have difficulty speaking clearly because of conditions like als, a stroke or cerebral palsy. they use say-so when they want to ask a caregiver or nurse for something like water and can't get the word across.
 
 **how they use it:**
