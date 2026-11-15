@@ -29,13 +29,13 @@ all 5 severe speakers are men, which pulls the men's numbers down. among mild sp
 
 **words the user never saved:** for each speaker we hid 13 of the 67 phrases and checked how often relay spoke anyway. relay can't get these right because the word was never saved. the gate described in the readme speaks on 33.3% of them, because it only learned from saved words and never saw this case. when the gate also practices on hidden words during training, that drops to 16.9%. the demo uses this second version.
 
-**keep learning:** we started each speaker with one saved recording of each phrase. after each later recording was used, it was saved with its right word, as if the user corrected every miss. relay's top guess was right this often on each day:
+**keep learning:** we started each speaker with one saved recording of each phrase. after each later recording was used, it was saved with its right word, as if the user corrected every miss. relay's top guess was right this often in each recording session:
 
-| day 2 | day 3 | day 4 | day 5 | day 6 |
+| session 2 | session 3 | session 4 | session 5 | session 6 |
 |---|---|---|---|---|
 | 50.3% | 63.6% | 68.2% | 74.4% | 78.4% |
 
-with no learning it stayed around 54%. if relay only learned from words the user confirmed, it reached 61.6% on day 6, because the words it kept getting wrong never got new recordings.
+with no learning it stayed around 54%. if relay only learned from words the user confirmed, it reached 61.6% by session 6, because the words it kept getting wrong never got new recordings.
 
 **whisper's gate:** for whisper the gate uses whisper's own scores in place of relay's first two clues (how likely whisper thought its chosen phrase was right and how much more likely it was than the next phrase). whisper has no saved recordings so it has no version of the third clue (whether the three saved recordings agree). it uses the same fourth and fifth clues (how long and how loud the recording is).
 

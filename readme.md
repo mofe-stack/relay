@@ -71,7 +71,7 @@ auroc measures how well the confidence score separates right predictions from wr
 
 <img src="roc_curve.png" width="450" alt="roc curve of the confidence gate">
 
-full results are in [results.md](results.md): severity, speakers without dysarthria, men vs women, unsaved words, keep learning and whisper's gate.
+full results are in [results.md](results.md): severity, speakers without dysarthria, men vs women, unsaved words, the keep learning feature and whisper's gate.
 
 **where it fails:**
 - severe speakers get the most wrong spoken words (7.1%), above the 5% target. we think this is because the threshold is set across all practice speakers and most of them are mild (16 of 27) while only 5 are severe.
@@ -87,5 +87,27 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 *a 3d model of the headset.*
 
 **other speech models:** try hubert from meta and wavlm from microsoft in place of whisper small's listening half in order to see if they turn dysarthric speech into numbers that are easier to compare.
+
+## sources
+
+**data and models**
+- easycall dataset (turrisi et al. 2021, cc by-nc 2.0): [paper](https://arxiv.org/abs/2104.02542) and [hugging face](https://huggingface.co/datasets/changelinglab/easycall-dysarthria)
+- whisper small by openai: [paper](https://arxiv.org/abs/2212.04356) and [hugging face](https://huggingface.co/openai/whisper-small)
+- whisper small for the browser demo: [onnx-community/whisper-small](https://huggingface.co/onnx-community/whisper-small)
+- hubert from meta: [hugging face](https://huggingface.co/facebook/hubert-large-ll60k)
+- wavlm from microsoft: [hugging face](https://huggingface.co/microsoft/wavlm-large)
+
+**papers and facts**
+- apple's latent phrase matching paper (2023): [arxiv](https://arxiv.org/abs/2306.05446)
+- 97 million people who may benefit from other ways to communicate: [asha](https://www.asha.org/practice-portal/professional-issues/augmentative-and-alternative-communication/)
+- dysarthria after a stroke and with parkinson's disease: [asha](https://www.asha.org/practice-portal/clinical-topics/dysarthria-in-adults/)
+- 15 million people who have a stroke each year: [world health organization](https://www.emro.who.int/health-topics/stroke-cerebrovascular-accident/introduction.html)
+
+**tools**
+- [hugging face transformers](https://huggingface.co/docs/transformers) and [transformers.js](https://huggingface.co/docs/transformers.js)
+- [onnx runtime web](https://onnxruntime.ai)
+- [scikit-learn](https://scikit-learn.org), [librosa](https://librosa.org), numpy, pandas and matplotlib
+- [google colab](https://colab.research.google.com)
+- claude (anthropic), an ai assistant, helped with code and writing
 
 **this project is a prototype and is not medical advice.**
