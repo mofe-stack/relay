@@ -31,7 +31,7 @@ our own idea (not one of the suggested projects). relay builds on a 2023 apple p
 
 **saved and test recordings:** each speaker's first three recordings of each phrase are their saved recordings. relay is tested on the 5,149 later recordings from speakers with dysarthria and never on a recording it saved.
 
-**matching:** we used whisper small, openai's speech-to-text model, without retraining it. relay uses its listening half to turn each recording into numbers, trims the silence, then compares the new recording to each saved one from start to finish (dynamic time warping). this makes relay work like a plug-in. a new user doesn't train anything. they just save their recordings, and adding a new word only takes three more.
+**matching:** we used whisper small, openai's speech-to-text model, without retraining it. relay uses its listening half to turn each recording into numbers, trims the silence, then compares the new recording to each saved one from start to finish (dynamic time warping). this makes relay work like a plug-in tool. it can sit on top of other speech models too. a new user doesn't train anything. they just save their recordings, and adding a new word only takes three more.
 
 **the confidence gate:** a logistic regression, which is a small model that gives a chance from 0 to 1 and works well with little data. it uses five clues: how close the best match is, how far behind the next closest word is, whether the three saved recordings agree, how long the recording is and how loud it is. relay speaks only when the chance is high enough that about 5% of spoken words are wrong. we trained and set this on some speakers and tested on others, rotating through five groups, so the gate is never tested on someone it learned from.
 
