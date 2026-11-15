@@ -108,6 +108,6 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 - [onnx runtime web](https://onnxruntime.ai)
 - [scikit-learn](https://scikit-learn.org), [librosa](https://librosa.org), numpy, pandas and matplotlib
 - [google colab](https://colab.research.google.com)
-- claude (anthropic), an ai assistant, helped with code and writing
+- [claude code](https://www.anthropic.com/claude-code) (anthropic): an ai assistant that helped with code and writing
 
 **this project is a prototype and is not medical advice.**
