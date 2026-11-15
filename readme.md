@@ -74,36 +74,11 @@ to check how well the confidence score separates right predictions from wrong on
 
 <img src="roc_curve.png" width="550" alt="roc curve of the confidence gate">
 
-**by severity:**
-
-| | spoke and right | false alarms | missed cases |
-|---|---|---|---|
-| mild (16) | 74.1% | 4.1% | 9.0% |
-| moderate (6) | 50.2% | 6.2% | 14.6% |
-| severe (5) | 25.4% | 7.1% | 16.0% |
-
-**speakers without dysarthria:** we also tested the 24 speakers without dysarthria on their 5,196 later recordings. the gate was only trained on speakers with dysarthria, so these are speakers it never learned from.
-
-| | spoke | spoke and right | spoke and wrong |
-|---|---|---|---|
-| whisper small | 100% | 83.2% | 16.8% |
-| relay (no gate) | 100% | 90.2% | 9.8% |
-| relay with the gate | 93.1% | 88.3% | 4.8% |
-
-**men vs women (no gate):**
-
-| | men | women |
-|---|---|---|
-| whisper small | 55.1% | 46.7% |
-| relay | 69.9% | 77.5% |
-
-all 5 severe speakers are men, which pulls the men's numbers down. among mild speakers only, whisper gets 71.7% right for men and 46.2% for women, a gap of 25.5 points. relay gets 87.9% and 76.6%, a gap of 11.3 points. both do worse on women here, but relay's gap is less than half of whisper's. easycall doesn't include speakers' ages, so we couldn't check results by age.
+full results, including by severity, speakers without dysarthria and men vs women, are in [results.md](results.md).
 
 **where it fails:**
 - severe speakers get the most wrong spoken words (7.1%), above the 5% target.
 - when someone says a word they never saved, the gate still speaks 16.9% of the time.
 - phrases that differ by one sound (like "sali" and "mali") get mixed up.
-
-we also tried boosted trees and a small neural network in place of the logistic regression. neither did better, so the limit seems to be the clues themselves, not the gate model.
 
 this project is a prototype and is not medical advice.
