@@ -69,7 +69,7 @@ false alarms (sayso speaks a wrong word) drop from 27.6% without the gate to 5.0
 
 auroc measures how well the confidence score separates right predictions from wrong ones. if you pick one try where sayso was right and one where it was wrong, it is how often the gate gives the right one the higher score. sayso's gate scores **0.904** (about 9 times out of 10). the same gate on whisper scores 0.877 and apple's rule on sayso's setup scores 0.569.
 
-<img src="roc_curve.png" width="450" alt="roc curve of the confidence gate">
+<img src="roc_sayso.png" width="450" alt="roc curve of the confidence gate">
 
 full results are in [results.md](results.md): severity, speakers without dysarthria, men vs women, unsaved words, the keep learning feature and whisper's gate.
 
