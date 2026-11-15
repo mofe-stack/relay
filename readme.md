@@ -74,8 +74,18 @@ auroc measures how well the confidence score separates right predictions from wr
 full results are in [results.md](results.md): severity, speakers without dysarthria, men vs women, unsaved words, keep learning and whisper's gate.
 
 **where it fails:**
-- severe speakers get the most wrong spoken words (7.1%), above the 5% target. we think this is because the threshold is set across all practice speakers and most of them are mild (16 of 27).
+- severe speakers get the most wrong spoken words (7.1%), above the 5% target. we think this is because the threshold is set across all practice speakers and most of them are mild (16 of 27) while only 5 are severe.
 - when someone says a word they never saved, relay still speaks 33.3% of the time. the gate only learned from saved words so it never saw this case.
 - phrases that differ by one sound (like "sali" and "mali") get mixed up because the two recordings sound almost the same.
+
+## what we'd do next
+
+**a headset for extra clues:** every gate model we tried landed around 0.90 auroc, so the limit seems to be the quality of the clues, not the gate. a headset that picks up small muscle signals from the face and throat (emg) while the user speaks would give the gate clues that don't depend on how clear the speech sounds.
+
+<img src="headset.gif" width="550" alt="3d model of a headset with emg sensors">
+
+*a 3d model of the kind of headset we mean. it was designed before this hackathon and is not part of this project.*
+
+**other speech models:** try hubert from meta and wavlm from microsoft in place of whisper small's listening half, to see if they turn dysarthric speech into numbers that are easier to compare.
 
 this project is a prototype and is not medical advice.
