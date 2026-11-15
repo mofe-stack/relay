@@ -25,4 +25,4 @@ relay listens to someone with dysarthria and says the word they meant out loud i
 
 ## what we added
 
-our own idea. we built on a 2023 apple paper that matched someone's speech to their own saved recordings and used a set cut-off to stay quiet when the closest match wasn't close enough. we added a confidence gate, which is a small trained model that looks at five clues about each match (e.g. how close the best match is and how loud the recording is).
+our own idea. relay builds on a 2023 apple paper that matched someone's speech to their own saved recordings and used a set cut-off to stay quiet when the closest match wasn't close enough. we added a confidence gate, which is a small trained model that looks at five clues about each match (e.g. how close the best match is and how loud the recording is).
