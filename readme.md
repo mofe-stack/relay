@@ -30,7 +30,7 @@ our own idea (not one of the suggested projects). say-so builds on a 2023 apple 
 
 **data:** we used easycall, a public dataset of italian speakers saying 67 short phone commands like "chiama emergenza" (call emergency). we tested on the 27 speakers with dysarthria who had at least 4 recording sessions (16 mild, 6 moderate and 5 severe) and 24 speakers without dysarthria. we removed 36 of its 21,386 recordings that were too short or too long for whisper.
 
-**saved and test recordings:** each speaker's first three recordings of each phrase are their saved recordings. say-so and the baselines are tested on the same 5,149 later recordings from speakers with dysarthria. say-so never saved any of them.
+**saved and test recordings:** each speaker's first three recordings of each phrase are their saved recordings. everything they recorded after that is used for testing, which gives 5,149 test recordings from speakers with dysarthria. say-so and the baselines are all tested on these same recordings, and say-so is never tested on a recording it saved.
 
 **how say-so recognizes words:** say-so and the whisper baseline both predict which of the 67 phrases was said. say-so uses the listening half of whisper small without retraining it to turn each recording into numbers. it trims the silence, compares the new recording to each saved one from start to finish (dynamic time warping) and chooses the phrase whose saved recordings are closest.
 
