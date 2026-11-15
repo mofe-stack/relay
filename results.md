@@ -41,7 +41,7 @@ each speaker started with one saved recording of each phrase. say-so then made a
 |---|---|---|---|---|
 | 50.3% | 63.6% | 68.2% | 74.4% | 78.4% |
 
-with no learning it stayed around 54%. if say-so only saved a recording when the right word was already in its top three (spoken or shown for the user to pick), it reached 61.6% by session 6. when the right word wasn't in the top three, nothing was saved, so the words it kept getting wrong never got better.
+with no learning it stayed around 54%. if say-so only saved a recording when the right word was already in its top three (spoken or shown for the user to pick), it reached 63.7% by session 6. when the right word wasn't in the top three, nothing was saved, so the words it kept getting wrong never got better.
 
 ## whisper's gate
 
