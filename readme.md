@@ -88,4 +88,4 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 
 **other speech models:** try hubert from meta and wavlm from microsoft in place of whisper small's listening half in order to see if they turn dysarthric speech into numbers that are easier to compare.
 
-this project is a prototype and is not medical advice.
+**this project is a prototype and is not medical advice.**
