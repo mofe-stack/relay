@@ -27,7 +27,7 @@ more results for the [readme](readme.md). unless it says otherwise, numbers are 
 
 all 5 severe speakers are men, which pulls the men's numbers down. among mild speakers only, whisper gets 71.7% right for men and 46.2% for women, a gap of 25.5 points. relay gets 87.9% and 76.6%, a gap of 11.3 points. both do worse on women here, but relay's gap is less than half of whisper's. easycall doesn't include speakers' ages, so we couldn't check results by age.
 
-**words the user never saved:** for each speaker we hid 13 of the 67 phrases and checked how often relay spoke anyway. relay can't get these right because the word was never saved. the gate described in the readme speaks on 33.3% of them, because it only learned from saved words and never saw this case. when the gate also practices on hidden words during training, that drops to 16.9%. the demo uses this second version.
+**words the user never saved:** sometimes a user will say a word they never saved. relay can't get these right, so the best it can do is not speak and show three words instead. to test this we hid 13 of the 67 phrases for each speaker so they counted as never saved. then we checked how often relay spoke anyway when someone said one of those hidden phrases. the gate described in the readme speaks on 33.3% of them because it only learned from saved words and never saw this case. when the gate also practices on hidden words during training, that drops to 16.9%.
 
 **keep learning:** we started each speaker with one saved recording of each phrase. after each later recording was used, it was saved with its right word, as if the user corrected every miss. relay's top guess was right this often in each recording session:
 
