@@ -19,10 +19,10 @@ relay listens to someone with dysarthria and says the word they meant out loud i
 **how they use it:**
 - **set up:** the user adds the words and phrases they want relay to recognize, including names and personal requests, and says each one three times. relay saves the recordings.
 - **use:** the user says a word. relay puts it next to each recording they saved, compares them from start to finish, and picks the closest match.
-- **the confidence gate:** a small trained model then predicts how likely relay's guess is to be right. if it is confident, relay says the word out loud in a clear voice. if it is less sure, it shows its top three predictions for the user to pick from. otherwise it stays silent.
+- **the confidence gate:** a small trained model then estimates how likely relay's prediction is to be right. if it is confident, relay says the word out loud in a clear voice. if it is less sure, it shows its top three predictions for the user to pick from. otherwise it stays silent.
 - **learning from feedback:** relay learns each time the user confirms a word or corrects a wrong guess, so it gets better the more they use it.
 - **caregiver view:**
 
 ## what we added
 
-our own idea (not one of the suggested projects). relay builds on a 2023 apple paper that matched someone's speech to their own saved recordings and stayed quiet when the closest match didn't pass a set cut-off. we added a confidence gate, which is a small trained model that looks at five clues to predict how likely relay's guess is to be right (e.g. how close the best match is and how loud the recording is).
+our own idea (not one of the suggested projects). relay builds on a 2023 apple paper that matched someone's speech to their own saved recordings and stayed quiet when the closest match didn't pass a set cut-off. we added a confidence gate, which is a small trained model that looks at five clues to estimate how likely relay's prediction is to be right (e.g. how close the best match is and how loud the recording is).
