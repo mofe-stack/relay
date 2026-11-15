@@ -50,3 +50,61 @@ we split the 27 speakers into five groups, used four as practice and tested on t
 **baselines:**
 - **whisper small:** the same model relay uses, but with both its listening and writing halves. it chooses from the same 67 phrases as relay by scoring how likely each phrase is and choosing the most likely one. it has never heard the speaker's voice before, because it's a pretrained model.
 - **simplest guess:** always says the most common phrase.
+
+## results
+
+all numbers are on the same 5,149 test recordings from the 27 speakers with dysarthria.
+
+| | right | wrong |
+|---|---|---|
+| simplest guess | 3.1% | 96.9% |
+| whisper small | 52.4% | 47.6% |
+| relay (no gate) | 72.4% | 27.6% |
+
+whisper speaks every time, so it says a wrong word on almost half of tries. relay's recognition alone gets 20 more points right.
+
+**with the confidence gate:**
+
+| relay spoke and was right | relay spoke and was wrong | relay didn't speak but would have been right | relay didn't speak and would have been wrong |
+|---|---|---|---|
+| 61.1% | 5.0% | 11.4% | 22.5% |
+
+the gate brings wrong spoken words from 27.6% down to 5.0%. when relay does speak, it's right 92.4% of the time. when it doesn't speak, the right word is often still in the three closest saved words (the right word is in the top three on 82.9% of all tries).
+
+to check how well the confidence score separates right predictions from wrong ones, we used auroc. if you pick one try where relay was right and one where it was wrong, auroc is how often the gate gives the right one the higher score. relay's gate scores **0.904**, so about 9 times out of 10.
+
+**by severity:**
+
+| | spoke and right | spoke and wrong | didn't speak but would have been right |
+|---|---|---|---|
+| mild (16) | 74.1% | 4.1% | 9.0% |
+| moderate (6) | 50.2% | 6.2% | 14.6% |
+| severe (5) | 25.4% | 7.1% | 16.0% |
+
+**speakers without dysarthria:** we also tested the 24 speakers without dysarthria on their 5,196 later recordings. the gate was only trained on speakers with dysarthria, so these are speakers it never learned from.
+
+| | right | wrong |
+|---|---|---|
+| whisper small | 83.2% | 16.8% |
+| relay (no gate) | 90.2% | 9.8% |
+| relay with the gate | 88.3% | 4.8% |
+
+with the gate, relay didn't speak on the other 6.9%. relay still beats whisper on clear speech, and the gate keeps wrong spoken words under 5% even on these new speakers.
+
+**men vs women (no gate):**
+
+| | men | women |
+|---|---|---|
+| whisper small | 55.1% | 46.7% |
+| relay | 69.9% | 77.5% |
+
+all 5 severe speakers are men, which pulls the men's numbers down. among mild speakers only, whisper gets 71.7% right for men and 46.2% for women, a gap of 25.5 points. relay gets 87.9% and 76.6%, a gap of 11.3 points. both do worse on women here, but relay's gap is less than half of whisper's.
+
+**where it fails:**
+- severe speakers get the most wrong spoken words (7.1%), above the 5% target.
+- when someone says a word they never saved, the gate still speaks 16.9% of the time.
+- phrases that differ by one sound (like "sali" and "mali") get mixed up.
+
+we also tried boosted trees and a small neural network in place of the logistic regression. neither did better, so the limit seems to be the clues themselves, not the gate model.
+
+this project is a prototype and is not medical advice.
