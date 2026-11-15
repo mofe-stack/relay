@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>relay demo</title>
-  <meta name="description" content="teach relay your own sound for each word, then make the sound. relay says the word clearly or shows the three closest words.">
+  <title>sayso demo</title>
+  <meta name="description" content="teach sayso your own sound for each word, then make the sound. sayso says the word clearly or shows the three closest words.">
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
 </head>
 <body>
   <header class="top">
-    <span class="brand">relay</span>
+    <span class="brand">sayso</span>
     <span class="tag">veritas ai hackathon 2026</span>
   </header>
 
   <main>
     <section class="hero">
-      <h1>make your sound.<br>relay says the word.</h1>
-      <p class="lede">relay doesn't need words said the standard way. for each word you want, make your own sound for it three times: the word however you can say it, a hum, or any sound you can repeat. then make the sound, and relay says the word clearly, or shows the three closest words when it isn't sure.</p>
+      <h1>make your sound.<br>sayso says the word.</h1>
+      <p class="lede">sayso doesn't need words said the standard way. for each word you want, make your own sound for it three times: the word however you can say it, a hum, or any sound you can repeat. then make the sound, and sayso says the word clearly, or shows the three closest words when it isn't sure.</p>
       <p class="caveat">this project is a prototype and is not medical advice. everything runs in this browser and no audio leaves the page. the first load downloads whisper small's listening half (about 92 mb).</p>
     </section>
 
@@ -36,14 +36,14 @@
 
       <div class="panel">
         <div class="step">
-          <h2>1. teach relay your sounds</h2>
-          <p class="hint">add a word you want relay to say, then press the mic and make your sound for it. do this three times for each word. teach at least two words.</p>
+          <h2>1. teach sayso your sounds</h2>
+          <p class="hint">add a word you want sayso to say, then press the mic and make your sound for it. do this three times for each word. teach at least two words.</p>
           <ul class="words" id="words"></ul>
           <form class="add" id="add">
-            <input id="new-word" maxlength="24" placeholder="a word relay should say, like water" autocomplete="off">
+            <input id="new-word" maxlength="24" placeholder="a word sayso should say, like water" autocomplete="off">
             <button class="button" type="submit">add</button>
           </form>
-          <button class="button quiet" id="use">done teaching, start using relay</button>
+          <button class="button quiet" id="use">done teaching, start using sayso</button>
         </div>
 
         <div class="step">
@@ -65,14 +65,14 @@
 
         <div class="step">
           <h2>3. caregiver view</h2>
-          <p class="hint">counts only. relay does not keep a list of what was said.</p>
+          <p class="hint">counts only. sayso does not keep a list of what was said.</p>
           <dl class="counts" id="counts"></dl>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>relay · mofe atanda &amp; bharath erusalagandi · built on easycall and whisper small</footer>
+  <footer>sayso · mofe atanda &amp; bharath erusalagandi · built on easycall and whisper small</footer>
 
   <script type="module" src="app.js"></script>
 </body>

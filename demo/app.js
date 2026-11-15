@@ -1,4 +1,4 @@
-import { load, toSequence, predict } from "./relay.js";
+import { load, toSequence, predict } from "./sayso.js";
 
 const $ = (id) => document.getElementById(id);
 const RATE = 16000;
@@ -139,7 +139,7 @@ $("use").addEventListener("click", () => {
   render();
 });
 
-// ---------- step 2: using relay ----------
+// ---------- step 2: using sayso ----------
 
 function speak(word) {
   speechSynthesis.cancel();
@@ -155,12 +155,12 @@ async function useRecording(x) {
 
   if (r.action === "speak") {
     state.counts.spoke++;
-    showResult(r.top3[0].word, "speak", "relay was sure enough, so it said it out loud.");
+    showResult(r.top3[0].word, "speak", "sayso was sure enough, so it said it out loud.");
     speak(r.top3[0].word);
     askChoices(`did you mean "${r.top3[0].word}"?`, [r.top3[0].word], true);
   } else {
     state.counts.show3++;
-    showResult(r.top3.map((p) => p.word).join(" · "), "show3", "relay wasn't sure, so it shows the three closest saved words.");
+    showResult(r.top3.map((p) => p.word).join(" · "), "show3", "sayso wasn't sure, so it shows the three closest saved words.");
     askChoices("which one did you mean?", r.top3.map((p) => p.word), false);
   }
   setLabel("press the mic and make another sound.");
@@ -177,7 +177,7 @@ function showSure(r) {
   $("sure").hidden = false;
   $("sure-fill").style.width = `${Math.round(r.sure * 100)}%`;
   $("sure-bar").style.left = `${r.bar * 100}%`;
-  $("sure-text").textContent = `the gate's confidence score for "${r.top3[0].word}": ${r.sure.toFixed(2)}. relay speaks at ${r.bar.toFixed(2)} or higher.`;
+  $("sure-text").textContent = `the gate's confidence score for "${r.top3[0].word}": ${r.sure.toFixed(2)}. sayso speaks at ${r.bar.toFixed(2)} or higher.`;
 }
 
 // learning from feedback: a confirmed or corrected try is saved as one more recording of that word
@@ -233,7 +233,7 @@ function setLabel(html) { $("mic-label").innerHTML = html; }
 function render() {
   renderWords();
   renderCounts();
-  $("mode").textContent = state.using ? "using relay" : state.active ? `saving "${state.active}"` : "";
+  $("mode").textContent = state.using ? "using sayso" : state.active ? `saving "${state.active}"` : "";
   if (!state.using && readyWords().length < 2) {
     $("result-word").textContent = "waiting";
     $("result-word").className = "result-word idle";

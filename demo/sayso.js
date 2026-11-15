@@ -12,7 +12,7 @@ let processor, encoder, gate;
 
 // the encoder file is about 92 mb, so it is kept in the browser cache after the first visit
 async function fetchCached(url, onProgress) {
-  const cache = await caches.open("relay-model");
+  const cache = await caches.open("sayso-model");
   const hit = await cache.match(url);
   if (hit) return new Uint8Array(await hit.arrayBuffer());
 

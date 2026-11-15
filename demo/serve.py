@@ -13,5 +13,5 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         super().end_headers()
 
 
-print("relay demo running at http://localhost:8123")
+print("sayso demo running at http://localhost:8123")
 http.server.ThreadingHTTPServer(("localhost", 8123), Handler).serve_forever()
