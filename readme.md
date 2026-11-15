@@ -1,4 +1,4 @@
-# relay: confidence-gated word matching for dysarthric speech
+# relay: confidence-gated word recognition for dysarthric speech
 
 **track:** ai + health
 
