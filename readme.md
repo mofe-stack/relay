@@ -10,7 +10,7 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 
 ## what we built
 
-**who it's for:** we built it for people who have difficulty speaking clearly because of conditions like als, a stroke or cerebral palsy. they can make sound, but the people around them often can't understand it.
+**who it's for:** we built it for people who have difficulty speaking clearly because of conditions like als, a stroke or cerebral palsy. they can make sound, but the people around them often can't understand what they saying. 
 
 **when they'd use it:** when they want to ask a caregiver or nurse for something, like water, and can't get the word across.
 
