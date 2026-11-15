@@ -59,17 +59,17 @@ all numbers are on the same 5,149 test recordings from the 27 speakers with dysa
 |---|---|---|
 | simplest guess | 3.1% | 96.9% |
 | whisper small | 52.4% | 47.6% |
-| relay (no gate) | 72.4% | 27.6% |
+| relay (no gate) | 72.4% (+20.0 vs whisper) | 27.6% (-20.0 vs whisper) |
 
 whisper speaks every time, so it says a wrong word on almost half of tries. relay's recognition alone gets 20 more points right.
 
 **with the confidence gate:**
 
-| relay spoke and was right | relay spoke and was wrong | relay didn't speak but would have been right | relay didn't speak and would have been wrong |
-|---|---|---|---|
-| 61.1% | 5.0% | 11.4% | 22.5% |
+| | spoke | right when it spoke | wrong when it spoke | didn't speak |
+|---|---|---|---|---|
+| relay with the gate | 66.1% of tries | 92.4% | 7.6% | 33.9% of tries |
 
-the gate brings wrong spoken words from 27.6% down to 5.0%. when relay does speak, it's right 92.4% of the time. when it doesn't speak, the right word is often still in the three closest saved words (the right word is in the top three on 82.9% of all tries).
+out of the times relay speaks, 92.4% of the words are right. false alarms (relay speaks a wrong word) drop from 27.6% of all tries without the gate to 5.0% with it. missed cases (relay stays quiet even though its prediction was right) are 11.4% of all tries. when it doesn't speak, the right word is often still in the three closest saved words (the right word is in the top three on 82.9% of all tries).
 
 to check how well the confidence score separates right predictions from wrong ones, we used auroc. if you pick one try where relay was right and one where it was wrong, auroc is how often the gate gives the right one the higher score. relay's gate scores **0.904**, so about 9 times out of 10.
 
@@ -98,7 +98,7 @@ with the gate, relay didn't speak on the other 6.9%. relay still beats whisper o
 | whisper small | 55.1% | 46.7% |
 | relay | 69.9% | 77.5% |
 
-all 5 severe speakers are men, which pulls the men's numbers down. among mild speakers only, whisper gets 71.7% right for men and 46.2% for women, a gap of 25.5 points. relay gets 87.9% and 76.6%, a gap of 11.3 points. both do worse on women here, but relay's gap is less than half of whisper's.
+all 5 severe speakers are men, which pulls the men's numbers down. among mild speakers only, whisper gets 71.7% right for men and 46.2% for women, a gap of 25.5 points. relay gets 87.9% and 76.6%, a gap of 11.3 points. both do worse on women here, but relay's gap is less than half of whisper's. easycall doesn't include speakers' ages, so we couldn't check results by age.
 
 **where it fails:**
 - severe speakers get the most wrong spoken words (7.1%), above the 5% target.
