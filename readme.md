@@ -72,7 +72,7 @@ false alarms (relay speaks a wrong word) drop from 27.6% of all tries without th
 
 to check how well the confidence score separates right predictions from wrong ones, we used auroc. if you pick one try where relay was right and one where it was wrong, auroc is how often the gate gives the right one the higher score. relay's gate scores **0.904**, so about 9 times out of 10. putting the same gate on whisper scores 0.879. our version of apple's rule, run on the same whisper features, scores 0.569.
 
-<img src="roc.png" width="100%" alt="roc curve of the confidence gate">
+<img src="roc.png" width="550" alt="roc curve of the confidence gate">
 
 **by severity:**
 
