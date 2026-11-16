@@ -6,7 +6,7 @@
 
 **code:** [say-so.ipynb](say-so.ipynb) ([open in colab](https://colab.research.google.com/github/mofe-stack/say-so/blob/main/say-so.ipynb))
 
-**demo:** [say-so.netlify.app](https://say-so.netlify.app)
+**demo website:** [say-so.netlify.app](https://say-so.netlify.app)
 
 ## the problem
 
