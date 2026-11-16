@@ -23,7 +23,7 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 - **use:** the user says a word or phrase. say-so compares it from start to finish with each recording they saved and picks the closest one.
 - **the confidence gate:** a small trained model then estimates how likely say-so's prediction is to be right. if it is confident, say-so says the word out loud in a clear voice. if it is less sure, it stays silent and shows the three closest saved words for the user to pick from.
 - **learning from feedback:** say-so learns whenever the user corrects a wrong guess or confirms a word, so it gets better the more they use it.
-- **caregiver view:** shows a trust meter (how often say-so said a wrong word out loud), which saved words need re-recording, which words get mixed up and how it improves over time. a slider sets how careful say-so is.
+- **caregiver view:** shows a trust meter (how often say-so said a wrong word out loud), words that need re-recording, words that get mixed up, suggestions for what to do next and words it gets right most often. a slider sets how careful say-so is.
 
 ## what we added
 
