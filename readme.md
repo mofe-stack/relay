@@ -2,7 +2,7 @@
 
 **track:** ai + health
 
-**team:** kept confidential for round 1 (names are on the submission form)
+**team:** say-so labs (names kept confidential for round 1)
 
 **code:** [say-so.ipynb](say-so.ipynb) ([open in colab](https://colab.research.google.com/github/mofe-stack/say-so/blob/main/say-so.ipynb))
 
