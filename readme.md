@@ -93,7 +93,7 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 
 <img src="headset_3d.gif" width="550" alt="3d model of a headset with emg sensors">
 
-*a 3d model of the headset.*
+*a 3d model of the headset we would build.*
 
 **english speech:** easycall is in italian, so the next step is testing say-so on english speakers with dysarthria. we couldn't do it this weekend because torgo, the open english dataset of dysarthric speech, doesn't have enough repeated recordings of the same words. only 39 words have 4 or more recordings across its 8 speakers with dysarthria.
 
