@@ -2,7 +2,7 @@
 
 **track:** ai + health
 
-**team:** mofe atanda & bharath erusalagandi
+**team:** kept confidential for round 1 (names are on the submission form)
 
 **code:** [say-so.ipynb](say-so.ipynb) ([open in colab](https://colab.research.google.com/github/mofe-stack/say-so/blob/main/say-so.ipynb))
 
