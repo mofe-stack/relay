@@ -29,7 +29,7 @@ an estimated 97 million people worldwide can't rely on speech alone to be unders
 
 ## what we added
 
-our own idea (not one of the suggested projects). say-so builds on a 2023 apple paper that used dynamic test wraping to match a person's spoken phrases to their own saved recordings and chose between saying a phrase or nothing by looking only at how close the best match was and chose between saying a phrase or nothing by looking *only* at how close the best match was. say-so's adds a confidence gate, which is a small trained model that looks at five clues to estimate how likely say-so's prediction is to be right (e.g. how close the best match is and how loud the recording is).
+our own idea (not one of the suggested projects). say-so builds on a 2023 apple paper that used a method called dynamic test wraping to match a person's spoken phrases to their own saved recordings and chose between saying a phrase or nothing by looking *only* at how close the best match was. say-so replaces apple's one-clue rule with a trained confidence gate that looks at five clues to estimate how likely say-so's prediction is to be right (e.g. how close the best match is and how loud the recording is).
 
 ## how it works
 
