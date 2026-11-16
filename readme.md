@@ -97,7 +97,7 @@ full results are in [results.md](results.md): severity, speakers without dysarth
 
 **english speech:** easycall is in italian, so the next step is testing say-so on english speakers with dysarthria. we couldn't do it this weekend because torgo, the open english dataset of dysarthric speech, doesn't have enough repeated recordings of the same words. only 39 words have 4 or more recordings across its 8 speakers with dysarthria.
 
-**other speech models:** try a bigger whisper model (whisper large), hubert from meta and wavlm from microsoft in place of whisper small's listening half to see if say-so picks the right phrase for more recordings.
+**other speech models:** try a bigger whisper model (whisper large), hubert from meta and wavlm from microsoft in place of whisper small's listening half to see if say-so picks the right phrase from each recording more often.
 
 ## sources
 
